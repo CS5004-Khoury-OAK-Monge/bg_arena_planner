@@ -8,10 +8,10 @@ board games to play on Board Game Arena.
 
 
 ## Learning Objectives
-* Designing with inheritance and polymorphism in java
+* Designing with inheritance and polymorphism in Java
 * Practicing Test Driven Development
-* Implementing junit tests for all methods
-* Making use of java collections/lists
+* Implementing JUnit tests for all methods
+* Making use of Java collections/lists
 * Making use of equality and sorting (especially sorting)
 * Explore the use of streams in Java
 
@@ -22,17 +22,17 @@ For this assignment, you will be implementing [IGameList](src/main/java/student/
 they can be added to the GameList. Both of them have classes already associated with them [GameList](src/main/java/student/GameList.java) and [Planner](src/main/java/student/Planner.java) respectively. This was to make sure you used the correct constructors.
 
 > [!IMPORTANT]
-> Just because we provided the base class does NOT mean all the functions you need are there. Just the public ones that are part of the interface. In our solution, we added multiple additional classes for this program as support / utility classes, and multiple private methods to each class! 
+> Just because we provided the base class does NOT mean all functionality you need is already defined. Just the public ones that are part of the interface. In our solution, we added multiple additional classes for this program as support / utility classes, and multiple private methods to each class! 
 > 
 > You **cannot** modify the interfaces IGameList or IPlanner or the constructor types for GameList or Planner. Everything else you can modify as needed. The autograder unit tests will be based on GameList and Planner, thus the reason you cannot modify them. 
 
-Your goal is to implement those two interfaces, so you have a working program. You will find that you will need to additional classes to make your life simpler. While you are only implementing a small portion of this program, that focuses on equality and sorting of data structures - don't let that fool you. It can take a lot to think about the logistics of the ordering, and how to break it down into smaller more manageable parts. Take your time to do that.
+Your goal is to implement those two interfaces, so you have a working program. You will find that you will need to define additional classes to make your life simpler. While you are only implementing a small portion of this program that focuses on equality and sorting of data structures, don't let that fool you. **It can take a lot** to think about the logistics of the ordering, and how to break it down into smaller more manageable parts. Take your time to do that.
 
-We suggest that for Module 05 - you implement the GameList, and some of the Planner (mainly the filter portions), and also finish the technical questions in [Report.md](../Report.md). Then in Module 06, you can add the sorts, and probably update GameList now that you have more tools to work with. This will help spread out a deceptively small assignment, as it isn't small at all once you start working on all the options. 
+We suggest that for Module 05 - you implement the GameList, and some of the Planner (mainly the filter portions), and also finish the technical questions in [Report.md](../Report.md). Then in Module 06, you can add the sorts, and probably update GameList now that you have more tools to work with. This will help spread out a *deceptively small* assignment, as it isn't small at all once you start working on all the options. 
 
 > [!TIP]
 > We have included a sample completed program you can try out. No promise that it is
-> 100% bullet proof, and probably some typos, but you can get the idea
+> 100% bullet-proof correct, and there are probably some typos, but you can get the idea
 > of how the final program works. If you go into the sample_working directory, you can run the program with the following command:
 > ```console
 > bin/bg_arena_planner
@@ -40,7 +40,7 @@ We suggest that for Module 05 - you implement the GameList, and some of the Plan
 > bin\bg_arena_planner.bat
 > ```
 > Both commands will execute the .jar file in the lib directory while properly setting the path. For macOS and linux, 
-> you may need to add the execute permission to the file (`chmod +x bin/bg_arena_planner`). 
+> **you may need to add the execute permission** to the file (`chmod +x bin/bg_arena_planner`). 
 
 
 ### :fire: Task 1: Design 
@@ -51,7 +51,7 @@ Before you start writing, it is important to think about design. You DO NOT have
 2. Go to [DesignDocument.md](../DesignDocument.md) and fill out (ONLY) the initial design sections. We have broken them up into sections to help you think about the design in smaller parts.
 
 > [!TIP]
-> You are free  to use mermaid or any other UML tools you want, just make sure if you are using another UML tool, you properly link the image in the markdown file. See the resources page, for a list of [UML tools](https://github.com/CS5004-khoury-lionelle/Resources?tab=readme-ov-file#uml-design-tools).
+> You are free  to use mermaid or any other UML tools you want, just make sure if you are using another UML tool, you properly link the image in the markdown file. See the resources page, for a list of [UML tools](https://github.com/CS5004-khoury-OAK-Monge/Resources?tab=readme-ov-file#uml-design-tools).
 
 
 ### :fire: Task 2: Implement by Test Driven Development
@@ -64,16 +64,16 @@ After your initial design, you should seek to follow the TDD process. This means
 4. Refactor/update  as you go along
 5. Repeat steps 2-4 until you have all the tests passing/fully built program
 
-Note: you often don't know all the tests as you write. As such, it is alright to continue to expand your list. This is where people get stuck on TDD. They think they have to know **all** the tests before they start. You don't. You just need to know the next test, and then at the end you double check you have covered all code paths and have full coverage. 
+Note: you often don't know all the tests as you write. As such, it is alright to continue to expand your list. This is where people get stuck on TDD. They think they have to know **all** the tests before they start. You don't. You just need to know the next test, and then at the end you double-check you have covered all code paths and have full coverage. 
 
 > [!CAUTION]
-> Make sure to commit as you development. The bare minimum commits would be after every test, but you probably will have additional commits especially at the beginning. 
+> Make sure to commit as you develop. The bare minimum commits would be after every test, but you probably will have additional commits especially at the beginning. 
 
 #### :raising_hand: Implementation Tips
 * Make sure to focus on how to keep things generalized, and broken up into other classes. 
-  * For example, we had a Filter.class that had stringFilter and numberFilter  - which handled multiple types of filters (name, max/min players and time, rating and difficulty, etc). 
+  * For example, we had a Filter class that had stringFilter and numberFilter  - which handled multiple types of filters (name, max/min players and time, rating and difficulty, etc). 
     * Switch statements are really helpful inside the filters based on the Operation.
-* We found it useful to create an Operator Enum similar to the GameData or ConsoleText enum. We added an additional useful function to help with filtering, which is as follows:
+* We found it useful to create an Operator Enum similar to the GameData or ConsoleText enum. We defined an additional useful function to help with filtering, which is as follows:
    ```java
    public static Operations getOperatorFromStr(String str) {
         if (str.contains(">=")) {
@@ -85,7 +85,7 @@ Note: you often don't know all the tests as you write. As such, it is alright to
    ```
    By using this enum, we never had to type ">=" or "<=" in our code, and could just use the enum. This made it easier to change the operator if needed, but also made it easier
    to check the filter and run various methods based on the operator returned. It would be possible to accomplish the same thing with a number of `public static final String` variables, and a few other supporting methods. The important part is try to break up your code.
-* A sorts strategy similar to the one presented at the end of Module 06 team activity is **important!** It made it easier to handle all the sorting options. 
+* A sorting strategy similar to the one presented at the end of Module 06 team activity is **important!** It made it easier to handle all the sorting options. 
 * Make sure you follow TDD. There area  lot of paths, but you can continue to add to your code as you develop tests - this especially helps in parsing the strings
   * For example, you have a test for a filter - you write the string parser just for that test
   * You have a test that handles multiple filters, you add to the string parser to handle multiple filters
@@ -219,7 +219,7 @@ I want to understand the architectural options before choosing one.
 ❌ I am working on a complex filtering mechanism that will filter fields based on field ID, then based on a value, such as rating > 4. However, some fields are strings, some are integers, and there are a lot of options. Can you help me plan out good ways to help minimize the code?
 ````
 
-**Why this is risky:** You'll get a complete design handed to you, which defeats the learning objective. Use this type of prompt **only after** you have a working design and want alternative perspectives. Also, in the past, it has often guided students trying to use hashtables to parse the type of filtering - you will want to avoid that path, it is actually more complex and not very helpful. It is REALLY EASY to have AI guide you down the wrong path into a design and implementation whole. 
+**Why this is risky:** You'll get a complete design handed to you, which defeats the learning objective. Use this type of prompt **only after** you have a working design and want alternative perspectives. Also, in the past, it has often guided students trying to use hashtables to parse the type of filtering - you will want to avoid that path, it is actually more complex and not very helpful. It is REALLY EASY to have AI guide you down the wrong path into a design and implementation hole that takes time to get out of!
 
 ### Test-Driven Development Reminder
 
@@ -257,7 +257,7 @@ Include in your submission:
 
 ## Submission
 
-When you are completed, you need to submit your code to gradescope. Go back to Canvas, and click through the link that takes you to the Gradescope assignment. When you submit, you will actually need to pull from your github repository in the dialog that appears. It only pulls the most recent submission, and if you make an update to the repository after you submit, you will need to resubmit to get the latest version in gradescope. 
+When you are completed, you need to submit your code to Gradescope. Go back to Canvas, and click through the link that takes you to the Gradescope assignment. When you submit, you will actually need to pull from your GitHub repository in the dialog that appears. It only pulls the most recent submission, and if you make an update to the repository after you submit, you will need to resubmit to get the latest version in gradescope. 
 
 
 ## 📝 Grading Rubric
@@ -269,10 +269,10 @@ When you are completed, you need to submit your code to gradescope. Go back to C
    * Passes the style check.  
 3. Meets (MG)
    * README.md is filled out (name, github repo, etc) 
-      * With out the link to your repo, the TAs won't grade the rest!
+      * Without the link to your repo, the TAs won't grade the rest!
    * DesignDocument (INITIAL) sections are filled out 
    * All methods are tested with JUnit tests
-   * Method contain proper javadoc comments (not just javadoc notation but proper wording in the comment)
+   * Method contain proper Javadoc comments (not just Javadoc notation but proper wording in the comment)
    * Report.md technical questions are questions answered correctly.
 4. Exceeds (MG)
    * Code is DRY (Don't Repeat Yourself)
@@ -291,10 +291,10 @@ Legend:
 * MG - Manually graded
 
 ### Submission Reminder 🚨
-For manually graded elements, we only guarantee time to submit for a regrade IF you submit by the DUE DATE. Submitting late may mean it isn't possible for the MG to be graded before the AVAILABLE BY DATE, removing any windows for you to resubmit in time. While it will be graded, it is always best to submit by the due date, so you have full opportunity to improve your grade.
+For manually graded elements, we only guarantee time to submit for a regrade IF you submit by the DUE DATE. Submitting late may mean it isn't possible for the MG to be graded before the AVAILABLE BY DATE, removing any windows for you to resubmit in time. While it will be graded, it is always best to submit by the due date, so you have full opportunity to improve your grade. There will be **no manual grading of submissions dated 4 days prior** to the AVAILABLE BY/UNTIL DATE.
 
 If you need a reminder about the grading policy, please review the syllabus and the canvas page on 'formative/summative' grading. This class uses a unique grading system that will allow you to be flexible with due dates and multiple resubmissions (if you submit with time for TAs to give feedback), but we also ask that you continue to work on the assignment until you get a full grade.
 
 
 ### Autograder Limitation
-Currently the autograder is limited in how it can test. As such, when it comes across an error it just stops. This means that if you have multiple errors in your code, you may only see the first one. We are working on improving this, but for now, you will need to fix the first error, and then rerun the tests to see the next error. Eventually, if every test passes, you will get the single point. It also may give you points for valid style, while errors exist in the code - so really assume the first 2 points are done together. 
+Currently, the autograder is limited in how it can test. As such, when it comes across an error it just stops. This means that if you have multiple errors in your code, you may only see the first one. We are working on improving this, but for now, you will need to fix the first error, and then rerun the tests to see the next error. Eventually, if every test passes, you will get the single point. It also may give you points for valid style, while errors exist in the code - so really assume the first 2 points are done together. 

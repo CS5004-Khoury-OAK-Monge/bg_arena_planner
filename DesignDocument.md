@@ -24,7 +24,7 @@ Create a class diagram for the classes you plan to create. This is your initial 
 
 ## (INITIAL DESIGN): Tests to Write - Brainstorm
 
-Write a test (in english) that you can picture for the class diagram you have created. This is the brainstorming stage in the TDD process. 
+Write a test (in English) that you can picture for the class diagram you have created. This is the brainstorming stage in the TDD process. 
 
 > [!TIP]
 > As a reminder, this is the TDD process we are following:
